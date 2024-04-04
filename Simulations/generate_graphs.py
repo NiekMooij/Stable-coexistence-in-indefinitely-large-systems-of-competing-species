@@ -51,7 +51,7 @@ def binomial_graph(size: int, p: float, dmax: int, connected: bool = False) -> n
         if nx.is_connected(G):  
             return G
         
-if __name__ == '__main__':
+def generate_graphs():
     # Specify parameters
     size_min, size_max, sizestep = 50, 150, 10
     size_domain = np.arange(size_min, size_max+1, sizestep)
@@ -92,3 +92,6 @@ if __name__ == '__main__':
     # Save raw data in the same directory as the file.
     df.to_csv(os.path.join(sys.path[0], f'data_empty/data_raw.csv'), index=False)
     df.to_pickle(os.path.join(sys.path[0], f'data_empty/data_raw.pkl'))
+    
+if __name__ == '__main__':
+    generate_graphs()

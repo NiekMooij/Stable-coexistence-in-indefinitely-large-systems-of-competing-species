@@ -213,7 +213,7 @@ ax1.scatter(x=domain[::skip],
 # Draw network
 # Manually define position and size for the inset plot
 inset_x = 0.22
-inset_y = 0.57
+inset_y = 0.585
 inset_width = 0.17
 inset_height = 0.15
 ax1_inset = fig.add_axes([inset_x, inset_y, inset_width, inset_height])

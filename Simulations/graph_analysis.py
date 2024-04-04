@@ -36,7 +36,7 @@ def update_row(row: dict) -> dict:
     
     return row, False
 
-def save_data(df: pd.DataFrame, type: str):
+def save_data(df: pd.DataFrame):
     """Save dataframe to csv and pickle format."""
     start_time = time.time()
     df.to_csv(os.path.join(sys.path[0], 'data_raw/data_raw.csv'), header=True, index=False)

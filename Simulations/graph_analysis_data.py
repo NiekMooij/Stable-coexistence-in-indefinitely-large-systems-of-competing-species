@@ -4,6 +4,28 @@ import os
 import sys
 from typing import List, Dict, Any, Union
 
+def confidence_interval(data, confidence=0.95):
+
+    data = np.array(data)    
+    mean = np.mean(data)
+    data_sorted = sorted(data)
+    n = len(data)
+        
+    lower_index = int((n*(1-confidence)/2))
+    upper_index = int(n - lower_index)
+    
+    data_filtered = data_sorted[lower_index:upper_index]
+
+    lower_bound = data_filtered[0]
+    upper_bound = data_filtered[-1]
+    
+    if lower_bound > mean:
+        lower_bound = mean
+    if upper_bound < mean:
+        upper_bound = mean
+    
+    return lower_bound, upper_bound
+
 def analyse_data(df: pd.DataFrame) -> None:
     """
     Analyze the data in the DataFrame and save the results as CSV and Pickle files.
@@ -28,12 +50,15 @@ def analyse_data(df: pd.DataFrame) -> None:
 
             # y = df_p_size['analytical_value'] / df_p_size['bound_value']
             y =  df_p_size['bound_value'] / df_p_size['analytical_value']
+            
+            lower_bound, upper_bound = confidence_interval(y, confidence=0.5)
 
             new_row = {
                 'p_connection': p,
                 'size': size,
                 'ratio_mean': np.mean(y),
-                'ratio_std': np.std(y)
+                'lower_bound': lower_bound,
+                'upper_bound': upper_bound
             }
 
             data_analysed.append(new_row)

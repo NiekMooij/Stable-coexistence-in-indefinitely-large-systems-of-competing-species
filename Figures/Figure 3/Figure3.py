@@ -5,9 +5,8 @@ import pandas as pd
 import sys
 
 cud_palette = [
-    '#0101fd',  # Blue
     '#E69F00',  # Orange
-    '#000000',  # Black
+    '#0101fd',  # Blue
     '#ff0101',   # Red
 ]
 
@@ -17,15 +16,14 @@ fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(10,5))
 fig.subplots_adjust(wspace=0.3)
 
 # Make plot 1
-# for index, p in enumerate(sorted(set(df['p_connection']))):
-for index, p in enumerate([0.2, 0.4, 0.6, 0.8]):
+for index, p in enumerate([0.2, 0.5, 0.8]):
     
-    print(f'index: {index}')
     color = cud_palette[index]
     df_p = df[np.round(df['p_connection'],2) == p]
 
     ax1.plot(df_p['size'], df_p['ratio_mean'], marker='o', linestyle='-', color=color, label=f'p={np.round(p,2)}', markersize=5, linewidth=1.5)
-    ax1.errorbar(df_p['size'], df_p['ratio_mean'], yerr=df_p['ratio_std'], color=color, capsize=5, capthick=1.5, elinewidth=1.5)
+    
+    ax1.errorbar(df_p['size'], df_p['ratio_mean'], yerr=(df_p['ratio_mean'] - df_p['lower_bound'], df_p['upper_bound'] - df_p['ratio_mean']), color=color, capsize=5, capthick=1.5, elinewidth=1.5)
         
 ax1.set_xlabel('Size (n)', fontsize=16)
 ax1.set_ylabel(r'Mean ratio $\tau_{c} / \Omega$', fontsize=16)
@@ -38,8 +36,8 @@ ax1.grid()
 # Make plot 2
 color = cud_palette[index]
 df_size = df[df['size'] == 100]
-ax2.plot(df_size['p_connection'], df_size['ratio_mean'], marker='o', linestyle='-', color=cud_palette[2], label=f'p={np.round(p,2)}', markersize=5, linewidth=1.5)
-ax2.errorbar(df_size['p_connection'], df_size['ratio_mean'], yerr=df_size['ratio_std'], color=cud_palette[2], fmt='o', capsize=5, capthick=1.5, elinewidth=1.5)
+ax2.plot(df_size['p_connection'], df_size['ratio_mean'], marker='o', linestyle='-', color='#000000', label=f'p={np.round(p,2)}', markersize=5, linewidth=1.5)
+ax2.errorbar(df_size['p_connection'], df_size['ratio_mean'], yerr=(df_size['ratio_mean'] - df_size['lower_bound'], df_size['upper_bound'] - df_size['ratio_mean']), color='#000000', fmt='o', capsize=5, capthick=1.5, elinewidth=1.5)
 
 ax2.set_xlabel(r'$p$', fontsize=16)
 ax2.set_ylabel(r'Mean ratio $\tau_{c} / \Omega$', fontsize=16)
