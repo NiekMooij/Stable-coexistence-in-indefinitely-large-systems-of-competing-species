@@ -471,7 +471,7 @@ ax2.set_xticks([0, 0.1, 0.2, 0.3, 0.4, 0.5], ['0', '0.1', '0.2', '0.3', '0.4', '
 ax2.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0], ['0', '0.2', '0.4', '0.6', '0.8', '1.0'], fontsize=14)
 ax2.axvline(bifurcation_point_pitchfork+0.007, 0, 0.2, color='grey', linestyle=':', clip_on=False)
 ax2.text(bifurcation_point_pitchfork+0.009, 0.08, r'$\tau_{\text{pitch}}$', fontsize=15)
-ax2.set_title('(a)', fontsize=16)
+ax2.set_title('(b)', fontsize=16)
 
 plt.savefig(os.path.join(sys.path[0], 'Figure2.pdf'), dpi=900, transparent=True, bbox_inches='tight')
 plt.show()

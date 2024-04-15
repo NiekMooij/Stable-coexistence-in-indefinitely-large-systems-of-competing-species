@@ -1,8 +1,8 @@
-PWD /Users/5746604/Documents/Paper - Ecology/Figures/Figure 1
+PWD /Users/5746604/Documents/Paper - Ecology/Code/Figures/Figure 1
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/5746604/Documents/Paper - Ecology/Figures/Figure 1/Figure1.tex
+INPUT /Users/5746604/Documents/Paper - Ecology/Code/Figures/Figure 1/Figure1.tex
 OUTPUT Figure1.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/standalone/standalone.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/standalone/standalone.cls
