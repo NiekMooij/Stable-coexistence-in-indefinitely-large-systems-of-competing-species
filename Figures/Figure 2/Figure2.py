@@ -229,7 +229,7 @@ nx.draw_networkx(G_transcritical, ax=ax1_inset, pos=pos, with_labels=False, node
 nx.draw_networkx_labels(G_transcritical, ax=ax1_inset, pos=pos, labels={i : str(i+1) for i in range(len(G_transcritical))}, font_size=11, font_color='white')
 
 ax1.set_xlim(0, 0.55)
-ax1.legend(loc='lower left', fontsize=10)
+ax1.legend(loc='lower left', fontsize=9)
 ax1.set_xlabel(r'$\tau$', fontsize=16)
 ax1.set_ylabel(r'$x^*$', fontsize=16)
 ax1.set_xticks([0, 0.1, 0.2, 0.3, 0.4, 0.5], ['0', '0.1', '0.2', '0.3', '0.4', '0.5'], fontsize=14)
@@ -464,7 +464,7 @@ nx.draw_networkx(G_pitchfork, ax=ax2_inset, pos=pos, with_labels=False, node_siz
 nx.draw_networkx_labels(G_pitchfork, ax=ax2_inset, pos=pos, labels={i : str(i+1) for i in range(len(G_pitchfork))}, font_size=11, font_color='white')
 
 ax2.set_xlim(0, 0.55)
-ax2.legend(loc='lower left', fontsize=10)
+ax2.legend(loc='lower left', fontsize=9)
 ax2.set_xlabel(r'$\tau$', fontsize=16)
 ax2.set_ylabel(r'$x^*$', fontsize=16)
 ax2.set_xticks([0, 0.1, 0.2, 0.3, 0.4, 0.5], ['0', '0.1', '0.2', '0.3', '0.4', '0.5'], fontsize=14)
@@ -473,5 +473,8 @@ ax2.axvline(bifurcation_point_pitchfork+0.007, 0, 0.2, color='grey', linestyle='
 ax2.text(bifurcation_point_pitchfork+0.009, 0.08, r'$\tau_{\text{pitch}}$', fontsize=15)
 ax2.set_title('(b)', fontsize=16)
 
-plt.savefig(os.path.join(sys.path[0], 'Figure2.pdf'), dpi=900, transparent=True, bbox_inches='tight')
+plt.savefig(os.path.join(sys.path[0], 'Figure2.eps'), dpi=900, bbox_inches='tight', format='eps')
+plt.savefig(os.path.join(sys.path[0], 'Figure2.pdf'), dpi=900, bbox_inches='tight', format='pdf')
+plt.savefig(os.path.join(sys.path[0], 'Figure2.png'), dpi=900, bbox_inches='tight', format='png')
+
 plt.show()

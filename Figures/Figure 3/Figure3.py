@@ -49,5 +49,10 @@ ax2.set_xlim(0.15, 1)
 ax2.grid()
 ax2.set_ylim(0.15, 0.43)
 
-plt.savefig(os.path.join(sys.path[0], 'Figure3.pdf'), dpi=600, transparent=True, bbox_inches='tight')
-plt.show()    
+# plt.savefig(os.path.join(sys.path[0], 'Figure3.pdf'), dpi=600, transparent=True, bbox_inches='tight')
+
+plt.savefig(os.path.join(sys.path[0], 'Figure3.eps'), dpi=900, bbox_inches='tight', format='eps')
+plt.savefig(os.path.join(sys.path[0], 'Figure3.pdf'), dpi=900, bbox_inches='tight', format='pdf')
+plt.savefig(os.path.join(sys.path[0], 'Figure3.png'), dpi=900, bbox_inches='tight', format='png')
+
+plt.show()
